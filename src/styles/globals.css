@@ -6,11 +6,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins";
+  /* color: #fff; */
 }
 
 /* root */
 :root {
-  --border: #232223;
+  --border: #676767;
   --main: #1d1c1d;
   --green: #15cf81;
   --green-f: #39d98d;
@@ -18,14 +19,380 @@
 
 body {
   background-color: var(--main);
+  /* overflow: hidden; */
 }
 
 /* 1rem to 10px */
 html {
   font-size: 62.5%;
+  cursor: url("../../components/home/curm.png"), auto;
+}
+
+/* own scrollbar */
+html {
+  /* scrollbar firefox */
+  scrollbar-color: rgb(1, 1, 1) rgb(110, 110, 110);
+  scroll-behavior: smooth;
+}
+
+/* Note: The -webkit-scrollbar is not supported by Firefox or IE and Edge. */
+
+::-webkit-scrollbar {
+  /* width */
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  /* Track */
+  box-shadow: inset 0 0 5px grey;
+  /* border-radius: 8px; */
+}
+
+::-webkit-scrollbar-thumb {
+  /* Handle */
+  background: rgb(110, 110, 110);
+  /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Handle on hover */
+  background: rgb(110, 110, 110);
+}
+
+::-webkit-scrollbar-track-piece {
+  /* not handle on */
+  background: var(--main);
 }
 @media (max-width: 768px) {
   html {
     font-size: 50%;
   }
+}
+
+/* layout */
+.layout {
+  display: flex;
+  width: 100%;
+  /* padding: 2rem; */
+}
+
+.sidebar {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  right: 0;
+  top: 0;
+}
+
+/* sidebar */
+.sidebar_ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* margin-top: 50%; */
+  /* position: sticky;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%); */
+  /* bottom: 50%; */
+  /* margin-right: 2rem; */
+  padding: 1rem;
+  border: 1px solid var(--border);
+  /* width: 100%; */
+  height: 50rem;
+  width: 7rem;
+  border-radius: 35px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background-color: var(--main);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.sidebar_ > * {
+  /* font-size: 2rem; */
+  padding: 1rem;
+}
+
+.sidebar_ > * > :first-child {
+  font-size: 2.4rem;
+  /* color: green; */
+}
+
+.side-ico {
+  color: var(--border);
+  transition: 0.5s ease-in-out;
+}
+
+.side-ico:hover {
+  color: var(--green-f);
+  transition: 0.5s ease-in-out;
+}
+
+.side-ico-active {
+  transition: 0.5s ease-in-out;
+  color: var(--green-f);
+}
+
+/* main */
+.main {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card {
+  height: 100vh;
+  display: flex;
+  width: 25%;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+.card_ {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  height: 92vh;
+  position: sticky;
+  padding: 3rem;
+  border: 1px solid var(--border);
+  margin: 0 2rem;
+  border-radius: 20px;
+  background-color: var(--main);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.card_tit {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+
+.card_tit > :first-child {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card_tit > :last-child {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #a1a1a1;
+  width: 10rem;
+  text-align: right;
+}
+
+.card_img {
+  height: 30rem;
+  width: 30rem;
+  margin-bottom: 7rem;
+}
+
+.card_img > :first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 38%;
+  filter: grayscale(100%);
+  border-radius: 20px;
+}
+
+.card_but {
+  display: flex;
+  width: 25rem;
+  justify-content: space-evenly;
+  margin-bottom: 5rem;
+}
+
+.card_but > * > :first-child > :first-child {
+  font-size: 2.7rem;
+  width: 5rem;
+  height: 5rem;
+  /* background-color: #fff; */
+  padding: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--border);
+  transition: 0.5s ease-in-out;
+}
+
+.card_but > * > :first-child:hover > :first-child {
+  color: var(--green-f);
+  border: 1px solid var(--green-f);
+  transition: 0.5s ease-in-out;
+}
+
+.card_cta {
+  width: 85%;
+  display: flex;
+  padding: 0.5rem 3rem;
+  color: #000000;
+  background-color: var(--green);
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.app {
+  width: 75%;
+  padding: 3rem;
+  text-align: justify;
+}
+
+.intro {
+  margin-top: 1rem;
+}
+
+.intro_top {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 1.7rem;
+  margin-bottom: 6rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.intro_head > :first-child {
+  font-size: 7rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: left;
+  width: 120rem;
+  margin-bottom: 5rem;
+}
+
+.intro_head > :first-child > span {
+  color: var(--green-f);
+}
+
+.intro_head > :nth-child(2) {
+  font-size: 2.5rem;
+  color: #bfbfbf;
+}
+
+.intro_c {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  height: 42rem;
+  align-items: center;
+}
+
+.intro_cta {
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  /* width: 20rem;
+  height: 20rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.intro_cta > :first-child > :first-child {
+  color: #fff;
+  font-size: 4rem;
+  width: 20rem;
+  height: 20rem;
+  padding: 6rem;
+}
+
+/* about */
+.about {
+  padding: 3.3rem 3rem;
+}
+
+.resume {
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.resume_cont {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume_cont > h1 {
+  font-size: 5rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.mob_main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.ser_holder {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10rem;
+}
+
+.specCard {
+  width: 100%;
+  height: 17rem;
+  border: 1px solid var(--green);
+  border-radius: 20px;
+  margin: 2rem;
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specCard > :first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.specCard > :first-child > :first-child {
+  color: var(--green-f);
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.specCard > :first-child > :nth-child(2) {
+  color: var(--border);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.specCard > :first-child > :nth-child(3) {
+  color: #bfbfbf;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.specCard > :nth-child(2) {
+  font-size: 5rem;
+  color: var(--green);
 }
